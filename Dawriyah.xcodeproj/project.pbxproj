@@ -8,19 +8,23 @@
 
 /* Begin PBXBuildFile section */
 		8161EE7A2B0A9E3700669CE2 /* DawriyahApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8161EE792B0A9E3700669CE2 /* DawriyahApp.swift */; };
-		8161EE7C2B0A9E3700669CE2 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8161EE7B2B0A9E3700669CE2 /* ContentView.swift */; };
 		8161EE7E2B0A9E3700669CE2 /* Item.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8161EE7D2B0A9E3700669CE2 /* Item.swift */; };
 		8161EE802B0A9E3800669CE2 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 8161EE7F2B0A9E3800669CE2 /* Assets.xcassets */; };
 		8161EE832B0A9E3800669CE2 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 8161EE822B0A9E3800669CE2 /* Preview Assets.xcassets */; };
+		8161EE8A2B0CC26700669CE2 /* DawriyahSplash.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8161EE892B0CC26600669CE2 /* DawriyahSplash.storyboard */; };
+		8161EE8E2B0DF26300669CE2 /* CalanderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8161EE8D2B0DF26300669CE2 /* CalanderView.swift */; };
+		8161EE902B0DF27D00669CE2 /* CreateView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8161EE8F2B0DF27D00669CE2 /* CreateView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		8161EE762B0A9E3700669CE2 /* Dawriyah.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Dawriyah.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		8161EE792B0A9E3700669CE2 /* DawriyahApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DawriyahApp.swift; sourceTree = "<group>"; };
-		8161EE7B2B0A9E3700669CE2 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		8161EE7D2B0A9E3700669CE2 /* Item.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Item.swift; sourceTree = "<group>"; };
 		8161EE7F2B0A9E3800669CE2 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		8161EE822B0A9E3800669CE2 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
+		8161EE892B0CC26600669CE2 /* DawriyahSplash.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = DawriyahSplash.storyboard; sourceTree = "<group>"; };
+		8161EE8D2B0DF26300669CE2 /* CalanderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalanderView.swift; sourceTree = "<group>"; };
+		8161EE8F2B0DF27D00669CE2 /* CreateView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -54,8 +58,10 @@
 			isa = PBXGroup;
 			children = (
 				8161EE792B0A9E3700669CE2 /* DawriyahApp.swift */,
-				8161EE7B2B0A9E3700669CE2 /* ContentView.swift */,
+				8161EE8D2B0DF26300669CE2 /* CalanderView.swift */,
+				8161EE8F2B0DF27D00669CE2 /* CreateView.swift */,
 				8161EE7D2B0A9E3700669CE2 /* Item.swift */,
+				8161EE892B0CC26600669CE2 /* DawriyahSplash.storyboard */,
 				8161EE7F2B0A9E3800669CE2 /* Assets.xcassets */,
 				8161EE812B0A9E3800669CE2 /* Preview Content */,
 			);
@@ -129,6 +135,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				8161EE832B0A9E3800669CE2 /* Preview Assets.xcassets in Resources */,
+				8161EE8A2B0CC26700669CE2 /* DawriyahSplash.storyboard in Resources */,
 				8161EE802B0A9E3800669CE2 /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -140,8 +147,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				8161EE7C2B0A9E3700669CE2 /* ContentView.swift in Sources */,
+				8161EE8E2B0DF26300669CE2 /* CalanderView.swift in Sources */,
 				8161EE7E2B0A9E3700669CE2 /* Item.swift in Sources */,
+				8161EE902B0DF27D00669CE2 /* CreateView.swift in Sources */,
 				8161EE7A2B0A9E3700669CE2 /* DawriyahApp.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

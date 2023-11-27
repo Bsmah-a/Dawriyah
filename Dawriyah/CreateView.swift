@@ -20,15 +20,15 @@ struct CreateView: View {
                     Color("backg").ignoresSafeArea()
                 VStack(spacing: 20){
                     HStack(spacing:30){
-                        RoundedRectangle(cornerRadius: 25).fill(Color("Color2")).frame(width: 130, height: 4)
+                        RoundedRectangle(cornerRadius: 25).fill(Color("Color2")).frame(width: 150, height: 4)
                         
-                        RoundedRectangle(cornerRadius: 25).fill(Color("Color2")).frame(width: 130, height: 4).opacity(0.37).padding()
+                        RoundedRectangle(cornerRadius: 25).fill(Color("Color2")).frame(width: 150, height: 4).opacity(0.37).padding()
                     }
                     VStack{ Text("Dawriyah Name").bold().padding(.leading, -143.0).font(.title2)
                         TextField("", text: $dawriyahName).padding().frame(width: 302,height: 58).background(Color("TextField")).cornerRadius(15).foregroundColor(Color("TitleC")).bold()}.padding(.bottom, 30.0)
                     VStack{
                         Text("Start Date").bold().padding(.leading, -157.0).font(.title2)
-                        DatePicker("", selection: $startDate, displayedComponents: .date).datePickerStyle(.wheel).frame(width:302 , height: 50).background(Color("TextField")).cornerRadius(15).foregroundColor(Color("Color2"))}.padding(.bottom, 42.0)
+                        DatePicker("", selection: $startDate, displayedComponents: .date).datePickerStyle(.wheel).frame(width:302 , height: 50).background(Color("TextField")).cornerRadius(15).foregroundColor(Color("Color2"))}.padding(.bottom, 42.0).font(.caption2)
                    
             
                     

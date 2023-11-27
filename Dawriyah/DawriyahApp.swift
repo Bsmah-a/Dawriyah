@@ -25,7 +25,7 @@ struct DawriyahApp: App {
 
     var body: some Scene {
         WindowGroup {
-            CalanderView()
+            SplachScreenView()
         }
         .modelContainer(sharedModelContainer)
     }

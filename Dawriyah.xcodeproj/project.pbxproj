@@ -15,6 +15,10 @@
 		8161EE902B0DF27D00669CE2 /* CreateView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8161EE8F2B0DF27D00669CE2 /* CreateView.swift */; };
 		8161EE942B10C9D600669CE2 /* peopleView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8161EE932B10C9D600669CE2 /* peopleView.swift */; };
 		8161EEB62B13C5BA00669CE2 /* SplachScreenView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8161EEB52B13C5BA00669CE2 /* SplachScreenView.swift */; };
+		81F5E58D2B15A1D60078DD26 /* peopleInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81F5E58C2B15A1D60078DD26 /* peopleInfo.swift */; };
+		81F5E58F2B15A2520078DD26 /* calanderSheet.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81F5E58E2B15A2520078DD26 /* calanderSheet.swift */; };
+		81F5E5912B15A8490078DD26 /* signInView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81F5E5902B15A8490078DD26 /* signInView.swift */; };
+		81F5E5932B15B8ED0078DD26 /* GroupsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81F5E5922B15B8ED0078DD26 /* GroupsView.swift */; };
 		C53CE7232B14CDA800A0C041 /* DawriyahTurns.swift in Sources */ = {isa = PBXBuildFile; fileRef = C53CE7222B14CDA800A0C041 /* DawriyahTurns.swift */; };
 /* End PBXBuildFile section */
 
@@ -28,6 +32,11 @@
 		8161EE8F2B0DF27D00669CE2 /* CreateView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateView.swift; sourceTree = "<group>"; };
 		8161EE932B10C9D600669CE2 /* peopleView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = peopleView.swift; sourceTree = "<group>"; };
 		8161EEB52B13C5BA00669CE2 /* SplachScreenView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SplachScreenView.swift; sourceTree = "<group>"; };
+		81F5E58C2B15A1D60078DD26 /* peopleInfo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = peopleInfo.swift; sourceTree = "<group>"; };
+		81F5E58E2B15A2520078DD26 /* calanderSheet.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = calanderSheet.swift; sourceTree = "<group>"; };
+		81F5E5902B15A8490078DD26 /* signInView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = signInView.swift; sourceTree = "<group>"; };
+		81F5E5922B15B8ED0078DD26 /* GroupsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GroupsView.swift; sourceTree = "<group>"; };
+		81F5E5942B1603C80078DD26 /* Dawriyah.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = Dawriyah.entitlements; sourceTree = "<group>"; };
 		C53CE7222B14CDA800A0C041 /* DawriyahTurns.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DawriyahTurns.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -61,13 +70,16 @@
 		8161EE782B0A9E3700669CE2 /* Dawriyah */ = {
 			isa = PBXGroup;
 			children = (
+				81F5E5942B1603C80078DD26 /* Dawriyah.entitlements */,
 				8161EEB22B13C20200669CE2 /* other */,
 				8161EE792B0A9E3700669CE2 /* DawriyahApp.swift */,
 				8161EE8D2B0DF26300669CE2 /* CalanderView.swift */,
 				C53CE7222B14CDA800A0C041 /* DawriyahTurns.swift */,
 				8161EE8F2B0DF27D00669CE2 /* CreateView.swift */,
+				81F5E5902B15A8490078DD26 /* signInView.swift */,
+				81F5E5922B15B8ED0078DD26 /* GroupsView.swift */,
 				8161EE932B10C9D600669CE2 /* peopleView.swift */,
-				8161EE7D2B0A9E3700669CE2 /* Item.swift */,
+				81F5E58B2B15A1A00078DD26 /* Model */,
 				8161EE7F2B0A9E3800669CE2 /* Assets.xcassets */,
 				8161EE812B0A9E3800669CE2 /* Preview Content */,
 			);
@@ -88,6 +100,16 @@
 				8161EEB52B13C5BA00669CE2 /* SplachScreenView.swift */,
 			);
 			path = other;
+			sourceTree = "<group>";
+		};
+		81F5E58B2B15A1A00078DD26 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				8161EE7D2B0A9E3700669CE2 /* Item.swift */,
+				81F5E58C2B15A1D60078DD26 /* peopleInfo.swift */,
+				81F5E58E2B15A2520078DD26 /* calanderSheet.swift */,
+			);
+			path = Model;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -162,8 +184,12 @@
 			files = (
 				8161EEB62B13C5BA00669CE2 /* SplachScreenView.swift in Sources */,
 				8161EE8E2B0DF26300669CE2 /* CalanderView.swift in Sources */,
+				81F5E5932B15B8ED0078DD26 /* GroupsView.swift in Sources */,
 				8161EE7E2B0A9E3700669CE2 /* Item.swift in Sources */,
 				8161EE902B0DF27D00669CE2 /* CreateView.swift in Sources */,
+				81F5E5912B15A8490078DD26 /* signInView.swift in Sources */,
+				81F5E58F2B15A2520078DD26 /* calanderSheet.swift in Sources */,
+				81F5E58D2B15A1D60078DD26 /* peopleInfo.swift in Sources */,
 				8161EE942B10C9D600669CE2 /* peopleView.swift in Sources */,
 				8161EE7A2B0A9E3700669CE2 /* DawriyahApp.swift in Sources */,
 				C53CE7232B14CDA800A0C041 /* DawriyahTurns.swift in Sources */,
@@ -297,9 +323,11 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = Dawriyah/Dawriyah.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"Dawriyah/Preview Content\"";
+				DEVELOPMENT_TEAM = W8DD873N4N;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
@@ -326,9 +354,11 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = Dawriyah/Dawriyah.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"Dawriyah/Preview Content\"";
+				DEVELOPMENT_TEAM = W8DD873N4N;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;

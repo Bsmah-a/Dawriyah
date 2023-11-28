@@ -56,7 +56,7 @@ struct CalendarView: View {
                     Button {
                             showSheet = true // Fix: Use showSheet instead of showData
                                         } label: {
-                                            Image(systemName: "ellipsis")
+                                            Image(systemName: "ellipsis").foregroundColor(Color("TitleC"))
                                         }
                                         .offset(x: 150, y: -40)
                                         .sheet(isPresented: $showSheet, content: {
@@ -84,6 +84,10 @@ struct CalendarView: View {
                     DatePicker("Select Date", selection: $selectedDate, displayedComponents: [.date])
                         .padding(.horizontal)
                         .datePickerStyle(.graphical)
+                        .onChange(of: selectedDate, {_, newvalue in print("hiiiii")})
+                        .sheet(isPresented: /*@START_MENU_TOKEN@*//*@PLACEHOLDER=Is Presented@*/.constant(false)/*@END_MENU_TOKEN@*/, content: {
+                            /*@START_MENU_TOKEN@*//*@PLACEHOLDER=Content@*/Text("Sheet Content")/*@END_MENU_TOKEN@*/
+                        })
                     Divider()
                 }
                 //                .padding(.vertical, 100)

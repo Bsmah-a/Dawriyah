@@ -7,11 +7,7 @@
 
 import SwiftUI
 
-struct peopleInfo: Identifiable{
-    let id: UUID = UUID()
-    let emoji: Int
-    let name: String
-}
+
 
 struct peopleView: View {
     

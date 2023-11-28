@@ -15,7 +15,7 @@ struct SplachScreenView: View {
     
     var body: some View {
         if isActive{
-            CreateView()
+            signInView()
         }else{
             ZStack{
                 Color("SplashColor").ignoresSafeArea()

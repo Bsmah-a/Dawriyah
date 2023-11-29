@@ -31,17 +31,11 @@ struct AcceptReject: View {
                             .foregroundColor(.gray)
                             .frame(width: 350, height: 1)
                             .padding(.vertical, -290)
-                        
-                        Button(action: {
-                            isShowingDialog = true // Show the dialog when the button is tapped
-                        }) {
-                            Text("Open Dialog")
-                                .padding()
-                                .background(Color.blue)
-                                .foregroundColor(.white)
-                                .cornerRadius(10)
-                        }
+
                     }
+                }
+                .onAppear{
+                    isShowingDialog = true
                 }
                 .overlay(
                     Group {

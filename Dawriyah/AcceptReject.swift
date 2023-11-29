@@ -73,7 +73,7 @@ struct AcceptReject: View {
                             .padding()
                             .background(Color("SplashColor"))
                             .foregroundColor(.white)
-                            .cornerRadius(10)
+                            .cornerRadius(20)
                     }
                     .padding()
                     Button(action: {
@@ -84,7 +84,7 @@ struct AcceptReject: View {
                             .padding()
                             .background(Color("Color2"))
                             .foregroundColor(.white)
-                            .cornerRadius(10)
+                            .cornerRadius(20)
                     }
                 }
             }

@@ -8,14 +8,101 @@
 import SwiftUI
 
 struct AcceptReject: View {
-    let title: String
-    let message: String
-    let Rbutton: String
-    let Lbutton: String
-    //    var message: String
-    //var rejectAction: () -> Void
-    //var acceptAction: () -> Void
-    var body: some View {
+
+        @State private var isShowingDialog = false // State variable to control the visibility of the dialog
+        
+        var body: some View {
+            NavigationView {
+                ZStack {
+                    Color("backg").ignoresSafeArea()
+                    
+                    Image("profile")
+                        .resizable()
+                        .scaledToFill()
+                        .frame(width: 10, height: 60)
+                        .padding(.bottom, 720)
+                        .padding(.leading, 275)
+                        .navigationTitle("Dwriyah Groups")
+                        .foregroundColor(Color("Color2"))
+                        .bold()
+                    
+                    VStack {
+                        Rectangle()
+                            .foregroundColor(.gray)
+                            .frame(width: 350, height: 1)
+                            .padding(.vertical, -290)
+                        
+                        Button(action: {
+                            isShowingDialog = true // Show the dialog when the button is tapped
+                        }) {
+                            Text("Open Dialog")
+                                .padding()
+                                .background(Color.blue)
+                                .foregroundColor(.white)
+                                .cornerRadius(10)
+                        }
+                    }
+                }
+                .overlay(
+                    Group {
+                        if isShowingDialog {
+                            // Pop-up dialog
+                            DialogView(isShowingDialog: $isShowingDialog)
+                        }
+                    }
+                )
+            }
+        }
+    }
+
+    struct DialogView: View {
+        @Binding var isShowingDialog: Bool // Binding to control the visibility of the dialog
+        
+        var body: some View {
+            VStack {
+                Text("Accept or Reject")
+                    .font(.title)
+                    .padding()
+                
+                HStack {
+                    Button(action: {
+                        // Handle reject action
+                        isShowingDialog = false // Close the dialog
+                    }) {
+                        Text("Reject")
+                            .padding()
+                            .background(Color("SplashColor"))
+                            .foregroundColor(.white)
+                            .cornerRadius(10)
+                    }
+                    .padding()
+                    Button(action: {
+                        // Handle accept action
+                        isShowingDialog = false // Close the dialog
+                    }) {
+                        Text("Accept")
+                            .padding()
+                            .background(Color("Color2"))
+                            .foregroundColor(.white)
+                            .cornerRadius(10)
+                    }
+                }
+            }
+            .frame(width: 300, height: 200)
+            .background(Color.white)
+            .cornerRadius(20)
+            .shadow(radius: 10)
+            .padding()
+        }
+    }
+
+    struct AcceptReject_Previews: PreviewProvider {
+        static var previews: some View {
+            AcceptReject()
+        }
+    }
+
+    /*var body: some View {
         
         NavigationStack{
             ZStack{
@@ -33,8 +120,9 @@ struct AcceptReject: View {
                 }
             }
         }
-    }}
+    }}*/
 
 #Preview {
-    AcceptReject(title: "s", message: "s", Rbutton: "s", Lbutton: "String")
+    AcceptReject()
 }
+

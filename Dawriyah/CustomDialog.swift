@@ -13,35 +13,45 @@ struct CustomDialog: View {
     var acceptAction: () -> Void
     
     var body: some View {
-        VStack {
-            Text(message)
-                .font(.headline)
-                .padding()
+        NavigationStack{
             
-            HStack {
-                Button(action: {
-                    rejectAction()
-                }) {
-                    Text("Reject")
-                        .foregroundColor(.white).background(Color("SplashColor"))
-                }
-                .padding()
+            VStack {
+                Text(message)
+                    .font(.headline)
+                    .padding()
                 
-                Button(action: {
-                    acceptAction()
-                }) {
-                    Text("Accept")
-                        .foregroundColor(.white).background(Color("Color2"))
+                HStack {
+                    Button(action: {
+                        rejectAction()
+                    }) {
+                        Text("Reject")
+                            .foregroundColor(.white)
+                            .padding()
+                            .frame(minWidth: 0, maxWidth: .infinity)
+                            .background(Color("SplashColor"))
+                            .cornerRadius(8)
+                    }
+                    .padding()
+                    
+                    Button(action: {
+                        acceptAction()
+                    }) {
+                        Text("Accept")
+                            .foregroundColor(.white)
+                            .padding()
+                            .frame(minWidth: 0, maxWidth: .infinity)
+                            .background(Color.brown)
+                            .cornerRadius(8)
+                    }
+                    .padding()
                 }
-                .padding()
             }
+            .frame(width: 300, height: 200)
+            .background(Color.white)
+            .cornerRadius(10)
+            .shadow(radius: 10)
         }
-        .frame(width: 300, height: 200)
-        .background(Color.white)
-        .cornerRadius(10)
-        .shadow(radius: 10)
-    }
-}
+    }}
 
 struct ContentView: View {
     @State private var showDialog = false
@@ -60,7 +70,7 @@ struct ContentView: View {
             
             
             if showDialog {
-                CustomDialog(message: "Do you accept the terms?", rejectAction: {
+                CustomDialog(message: "You Have an invetation ", rejectAction: {
                     print("Reject button tapped")
                     showDialog = false
                 }, acceptAction: {

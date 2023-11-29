@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		29A7B3202B1754420077E1C1 /* AcceptReject.swift in Sources */ = {isa = PBXBuildFile; fileRef = 29A7B31F2B1754420077E1C1 /* AcceptReject.swift */; };
 		8161EE7A2B0A9E3700669CE2 /* DawriyahApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8161EE792B0A9E3700669CE2 /* DawriyahApp.swift */; };
 		8161EE7E2B0A9E3700669CE2 /* Item.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8161EE7D2B0A9E3700669CE2 /* Item.swift */; };
 		8161EE802B0A9E3800669CE2 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 8161EE7F2B0A9E3800669CE2 /* Assets.xcassets */; };
@@ -23,6 +24,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		29A7B31F2B1754420077E1C1 /* AcceptReject.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AcceptReject.swift; sourceTree = "<group>"; };
 		8161EE762B0A9E3700669CE2 /* Dawriyah.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Dawriyah.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		8161EE792B0A9E3700669CE2 /* DawriyahApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DawriyahApp.swift; sourceTree = "<group>"; };
 		8161EE7D2B0A9E3700669CE2 /* Item.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Item.swift; sourceTree = "<group>"; };
@@ -79,6 +81,7 @@
 				81F5E5902B15A8490078DD26 /* signInView.swift */,
 				81F5E5922B15B8ED0078DD26 /* GroupsView.swift */,
 				8161EE932B10C9D600669CE2 /* peopleView.swift */,
+				29A7B31F2B1754420077E1C1 /* AcceptReject.swift */,
 				81F5E58B2B15A1A00078DD26 /* Model */,
 				8161EE7F2B0A9E3800669CE2 /* Assets.xcassets */,
 				8161EE812B0A9E3800669CE2 /* Preview Content */,
@@ -188,6 +191,7 @@
 				8161EE7E2B0A9E3700669CE2 /* Item.swift in Sources */,
 				8161EE902B0DF27D00669CE2 /* CreateView.swift in Sources */,
 				81F5E5912B15A8490078DD26 /* signInView.swift in Sources */,
+				29A7B3202B1754420077E1C1 /* AcceptReject.swift in Sources */,
 				81F5E58F2B15A2520078DD26 /* calanderSheet.swift in Sources */,
 				81F5E58D2B15A1D60078DD26 /* peopleInfo.swift in Sources */,
 				8161EE942B10C9D600669CE2 /* peopleView.swift in Sources */,

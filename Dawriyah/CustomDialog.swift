@@ -79,3 +79,54 @@ struct ContentView_Previews: PreviewProvider {
         ContentView()
     }
 }
+
+
+//import SwiftUI
+//
+//struct InvitationView: View {
+//    var body: some View {
+//        VStack {
+//            Text("You're invited!")
+//                .font(.title)
+//                .padding()
+//            
+//            Text("Join us for a special event.")
+//                .padding(.bottom, 20)
+//            
+//            HStack(spacing: 20) {
+//                Button(action: {
+//                    // Action when "Accept" button is tapped
+//                    print("Accepted")
+//                }) {
+//                    Text("Accept")
+//                        .foregroundColor(.white)
+//                        .padding()
+//                        .frame(minWidth: 0, maxWidth: .infinity)
+//                        .background(Color.brown)
+//                        .cornerRadius(8)
+//                }
+//                
+//                Button(action: {
+//                    // Action when "Reject" button is tapped
+//                    print("Rejected")
+//                }) {
+//                    Text("Reject")
+//                        .foregroundColor(.white)
+//                        .padding()
+//                        .frame(minWidth: 0, maxWidth: .infinity)
+//                        .background(Color.brown)
+//                        .cornerRadius(8)
+//                }
+//            }
+//            .padding(.top, 20)
+//        }
+//        .padding()
+//    }
+//}
+//
+//struct InvitationView_Previews: PreviewProvider {
+//    static var previews: some View {
+//        InvitationView()
+//    }
+//}
+

@@ -60,8 +60,8 @@ struct AcceptReject: View {
         
         var body: some View {
             VStack {
-                Text("Accept or Reject")
-                    .font(.title)
+                Text("You've been invited to ... ")
+                    .font(.title2)
                     .padding()
                 
                 HStack {
@@ -71,7 +71,7 @@ struct AcceptReject: View {
                     }) {
                         Text("Reject")
                             .padding()
-                            .background(Color("SplashColor"))
+                            .frame(width:120, height: 58).background(Color("SplashColor"))
                             .foregroundColor(.white)
                             .cornerRadius(20)
                     }
@@ -82,7 +82,7 @@ struct AcceptReject: View {
                     }) {
                         Text("Accept")
                             .padding()
-                            .background(Color("Color2"))
+                            .frame(width:120, height: 58).background(Color("Color2"))
                             .foregroundColor(.white)
                             .cornerRadius(20)
                     }

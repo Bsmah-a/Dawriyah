@@ -49,7 +49,7 @@ struct peopleView: View {
                                 }.background(Color("backg"))
                             }
                     
-                    NavigationLink(destination: CreateView()) {
+                    NavigationLink(destination: CalendarView()) {
                      Text("Create!").padding().frame(width: 229, height: 53).background(Color("Color2")).foregroundColor(.white).cornerRadius(20).bold().font(.headline)
                  }.padding(.top, 30.0)
                         }

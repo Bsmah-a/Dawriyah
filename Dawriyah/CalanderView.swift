@@ -13,6 +13,7 @@ struct CalendarView: View {
     @State private var selectedDate: Date = Date()
     @State private var showData = false
     @State private var showSheet = false
+    @State private var isSheetPresented = true
     let people:[ peopleInfo] = [
         peopleInfo(emoji: 1, name: "Renad"),
         peopleInfo(emoji: 2, name: "Basemah"),
@@ -71,7 +72,7 @@ struct CalendarView: View {
                 Rectangle()
                     .foregroundColor(.gray)
                     .frame(width:350,height: 1)
-                    .padding(.vertical,-50)
+                    .padding(.vertical,-45)
                 
                 Text("Highlight your busy days !")
                     .font(.title2)
@@ -84,16 +85,16 @@ struct CalendarView: View {
                     DatePicker("Select Date", selection: $selectedDate, displayedComponents: [.date])
                         .padding(.horizontal)
                         .datePickerStyle(.graphical)
-                        .onChange(of: selectedDate, {_, newvalue in print("hiiiii")})
-                        .sheet(isPresented: /*@START_MENU_TOKEN@*//*@PLACEHOLDER=Is Presented@*/.constant(false)/*@END_MENU_TOKEN@*/, content: {
-                            /*@START_MENU_TOKEN@*//*@PLACEHOLDER=Content@*/Text("Sheet Content")/*@END_MENU_TOKEN@*/
-                        })
-                    Divider()
-                }
-                //                .padding(.vertical, 100)
-            }
-            .navigationTitle("Family")
-        }
+                        .onChange(of: selectedDate) {
+                            newValue in isSheetPresented = true
+                        }
+                        Divider()
+                        }.sheet(isPresented: $isSheetPresented) {
+                                    BusyMembers()
+             }
+                //.padding(.vertical, 100)
+            }.navigationTitle("Family")
+        }.accentColor(Color("Color2"))
         
     }
     }

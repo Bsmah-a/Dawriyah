@@ -4,6 +4,12 @@
 //
 //  Created by Reema Alsmari on 29/11/2023.
 //
+//
+//  Account.swift
+//  Dawriyah
+//
+//  Created by Reema Alsmari on 29/11/2023.
+//
 
 import SwiftUI
 
@@ -45,9 +51,15 @@ struct ProfileSheet: View {
                     isShowingAccountSettings.toggle()
                     
                 }) {
-                    Text("Account Settings")
-                    .foregroundColor(.brown)
-                }
+                    HStack{
+                        Image("profile")
+                            .resizable()
+                            .scaledToFill()
+                            .frame(width: 5, height: 40).padding(.trailing, 10).padding(.leading,10)
+                        Text("  Account Settings")
+                            .foregroundColor(.brown)
+                        
+                    }}
                 .sheet(isPresented: $isShowingAccountSettings) {
                     AccountSettingsView()
                 }
@@ -56,10 +68,15 @@ struct ProfileSheet: View {
                 Button(action: {
                     isShowingInvitations.toggle()
                 }) {
-                    Text("Invitations")
-                    .foregroundColor(.brown)
-                    
-                }
+                    HStack{
+                        Image("inbox")
+                            .resizable()
+                            .scaledToFill()
+                            .frame(width: 5, height: 40).padding(.trailing, 20).padding(.leading,10)
+                        Text("Invitations")
+                            .foregroundColor(.brown)
+                        
+                    }}
                 .sheet(isPresented: $isShowingInvitations) {
                     InvitationsView()
                 }

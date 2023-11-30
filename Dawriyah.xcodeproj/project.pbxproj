@@ -23,6 +23,7 @@
 		81F5E5932B15B8ED0078DD26 /* GroupsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81F5E5922B15B8ED0078DD26 /* GroupsView.swift */; };
 		99BDF2042B177DAD00E52377 /* Account.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99BDF2032B177DAD00E52377 /* Account.swift */; };
 		C505EA292B18832900AF6E4A /* BusyMembers.swift in Sources */ = {isa = PBXBuildFile; fileRef = C505EA282B18832900AF6E4A /* BusyMembers.swift */; };
+		C505EA2D2B18B34300AF6E4A /* DawriyahDaySheet.swift in Sources */ = {isa = PBXBuildFile; fileRef = C505EA2C2B18B34300AF6E4A /* DawriyahDaySheet.swift */; };
 		C53CE7232B14CDA800A0C041 /* DawriyahTurns.swift in Sources */ = {isa = PBXBuildFile; fileRef = C53CE7222B14CDA800A0C041 /* DawriyahTurns.swift */; };
 /* End PBXBuildFile section */
 
@@ -45,6 +46,7 @@
 		81F5E5942B1603C80078DD26 /* Dawriyah.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = Dawriyah.entitlements; sourceTree = "<group>"; };
 		99BDF2032B177DAD00E52377 /* Account.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Account.swift; sourceTree = "<group>"; };
 		C505EA282B18832900AF6E4A /* BusyMembers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BusyMembers.swift; sourceTree = "<group>"; };
+		C505EA2C2B18B34300AF6E4A /* DawriyahDaySheet.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DawriyahDaySheet.swift; sourceTree = "<group>"; };
 		C53CE7222B14CDA800A0C041 /* DawriyahTurns.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DawriyahTurns.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -91,6 +93,7 @@
 				29A7B31F2B1754420077E1C1 /* AcceptReject.swift */,
 				29A7B3212B17696C0077E1C1 /* CustomDialog.swift */,
 				99BDF2032B177DAD00E52377 /* Account.swift */,
+				C505EA2C2B18B34300AF6E4A /* DawriyahDaySheet.swift */,
 				81F5E58B2B15A1A00078DD26 /* Model */,
 				8161EE7F2B0A9E3800669CE2 /* Assets.xcassets */,
 				8161EE812B0A9E3800669CE2 /* Preview Content */,
@@ -195,6 +198,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				29A7B3222B17696C0077E1C1 /* CustomDialog.swift in Sources */,
+				C505EA2D2B18B34300AF6E4A /* DawriyahDaySheet.swift in Sources */,
 				8161EEB62B13C5BA00669CE2 /* SplachScreenView.swift in Sources */,
 				8161EE8E2B0DF26300669CE2 /* CalanderView.swift in Sources */,
 				C505EA292B18832900AF6E4A /* BusyMembers.swift in Sources */,

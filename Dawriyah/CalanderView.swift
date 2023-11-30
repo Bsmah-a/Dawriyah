@@ -13,7 +13,8 @@ struct CalendarView: View {
     @State private var selectedDate: Date = Date()
     @State private var showData = false
     @State private var showSheet = false
-    @State private var isSheetPresented = true
+    @State private var isSheetPresented = false
+    @State private var DawriyahSheet = false
     let people:[ peopleInfo] = [
         peopleInfo(emoji: 1, name: "Renad"),
         peopleInfo(emoji: 2, name: "Basemah"),
@@ -66,7 +67,11 @@ struct CalendarView: View {
                                     }
                     
                         
-                        
+                Button{
+                                       DawriyahSheet = true
+                                   } label: {
+                                       Image(systemName: "pin.circle").padding(.top, -230).padding(.leading, 300.0).font(.title).foregroundColor(Color("Color2")).bold()} .sheet(isPresented: $DawriyahSheet, content: {
+                                           DawriyahDaySheet()})
                     
                 
                 Rectangle()

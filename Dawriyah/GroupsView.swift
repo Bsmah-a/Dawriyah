@@ -24,14 +24,14 @@ struct GroupsView: View {
         NavigationStack{
             VStack{
                 
-                Button(action:{
+               /* Button(action:{
                             isShowingProfileSheet.toggle()
                         }) {
                             Image(systemName: "person.circle").font(.largeTitle).foregroundColor(Color("Color2")).padding(.top, -76.0).padding(.leading, 290.0)}
                         
                         .sheet(isPresented: $isShowingProfileSheet) {
                             ProfileSheet()
-                        }
+                        }*/
                    
             ScrollView{
                 
@@ -60,7 +60,19 @@ struct GroupsView: View {
                     
                     Spacer()
             }.padding(.top, 40.0)
-                }.navigationTitle("Dawriyah Groups")
+            }.navigationTitle("Dawriyah Groups") .toolbar {
+                Button(action:{
+                    isShowingProfileSheet.toggle()
+                }) {
+                    Image(systemName: "person.circle")
+                        .font(.largeTitle)
+                        .foregroundColor(Color("Color2"))
+                }
+                .sheet(isPresented: $isShowingProfileSheet) {
+                    ProfileSheet()}
+            }
+            
+            
                 .background{
                     Color("backg").ignoresSafeArea()
                 }

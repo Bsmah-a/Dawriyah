@@ -18,7 +18,7 @@ struct Account: View {
                 isShowingProfileSheet.toggle()
                 
             }) {
-                Image(systemName: "person.circle.fill")
+                Image("profile")
                     .resizable()
                     .aspectRatio(contentMode: .fill)
                     .frame(width: 100, height: 100)

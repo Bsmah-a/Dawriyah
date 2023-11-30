@@ -66,13 +66,6 @@ struct CalendarView: View {
                                         })
                                     }
                     
-                        
-                Button{
-                                       DawriyahSheet = true
-                                   } label: {
-                                       Image(systemName: "pin.circle").padding(.top, -230).padding(.leading, 300.0).font(.title).foregroundColor(Color("Color2")).bold()} .sheet(isPresented: $DawriyahSheet, content: {
-                                           DawriyahDaySheet()})
-                    
                 
                 Rectangle()
                     .foregroundColor(.gray)
@@ -98,7 +91,16 @@ struct CalendarView: View {
                                     BusyMembers()
              }
                 //.padding(.vertical, 100)
-            }.navigationTitle("Family")
+            }.navigationTitle("Family").toolbar {
+                Button(action:{
+                    DawriyahSheet.toggle()
+                }) {
+                    Image(systemName: "pin.circle")
+                        .font(.largeTitle)
+                        .foregroundColor(Color("Color2"))
+                }}
+                .sheet(isPresented: $DawriyahSheet, content: {
+                    DawriyahDaySheet()})
         }.accentColor(Color("Color2"))
         
     }

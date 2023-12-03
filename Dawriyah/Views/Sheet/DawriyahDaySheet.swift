@@ -30,8 +30,8 @@ TextField("", text: $addressD).padding().frame(width: 302,height: 58).background
                                
 HStack(spacing:20){
     Text("Choose day").font(.title2).foregroundColor(Color("Color2")).padding(.leading, -70.0)
-   DatePicker("", selection: $dawriyahDay, displayedComponents: [.date]).frame(width: 130.0).cornerRadius(20).background(Color("SplashColor"))}
-      Divider()
+   DatePicker("", selection: $dawriyahDay, displayedComponents: [.date]).frame(width: 105.0).background(Color("SplashColor")).cornerRadius(15)}
+          Divider()
                                
   //Start time of Dawriyah ....................
 HStack{

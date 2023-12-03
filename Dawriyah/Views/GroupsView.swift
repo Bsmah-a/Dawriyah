@@ -55,7 +55,7 @@ struct GroupsView: View {
                     ZStack{
                         RoundedRectangle(cornerRadius: /*@START_MENU_TOKEN@*/25.0/*@END_MENU_TOKEN@*/).frame(width: 312, height: 125).foregroundColor(Color("Color2")).opacity(0.40)
                         NavigationLink(destination: CreateView()){
-                            Image(systemName: "plus.circle").font(.largeTitle).foregroundColor(Color("Color2")).opacity(0.40)}
+                            Image(systemName: "plus.circle").font(.system(size: 60)).foregroundColor(Color("Color2")).opacity(0.40)}
                     }
                     
                     Spacer()

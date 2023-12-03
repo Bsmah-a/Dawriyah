@@ -17,7 +17,7 @@ struct DawriyahDaySheet: View {
 var body: some View {
 NavigationView{
       VStack{
-Text("Select Dawriyah Day").font(/*@START_MENU_TOKEN@*/.title/*@END_MENU_TOKEN@*/)
+          Text("Select Dawriyah Day").font(/*@START_MENU_TOKEN@*/.title/*@END_MENU_TOKEN@*/).bold()
 RoundedRectangle(cornerRadius: 25.0).frame(width: 350,height: 3).foregroundColor(.gray).opacity(0.20)
                                
     // address of dawriyah ...................................

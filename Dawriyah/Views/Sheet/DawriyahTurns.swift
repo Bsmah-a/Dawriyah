@@ -25,10 +25,10 @@ struct DawriyahTurns: View {
                                 Image(memoji[index])
                                     .resizable()
                                     .aspectRatio(contentMode: .fit)
-                                    .frame(width: 30, height: 30)
-                                    .padding(.trailing, 10)
+                                    .frame(width: 40, height: 40)
+                                    .padding(.trailing, 5)
 
-                                Text(items[index].capitalized)
+                                Text(items[index].capitalized).font(.system(size: 20))
                             }
                         }
                         .onMove { indices, newOffset in

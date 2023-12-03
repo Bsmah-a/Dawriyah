@@ -20,6 +20,10 @@ struct CalendarView: View {
         peopleInfo(emoji: 2, name: "Basemah"),
         peopleInfo(emoji: 3, name: "Reema"),
         peopleInfo(emoji: 1, name: "Taif")]
+    @State private var busyMembers: [peopleInfo] = []
+    @State private var busyDays: Set<Date> = []
+    
+    
     
     var body: some View {
         NavigationView {
@@ -56,16 +60,16 @@ struct CalendarView: View {
                     }
                     
                     Button {
-                            showSheet = true // Fix: Use showSheet instead of showData
-                                        } label: {
-                                            Image(systemName: "ellipsis").foregroundColor(Color("TitleC"))
-                                        }
-                                        .offset(x: 150, y: -40)
-                                        .sheet(isPresented: $showSheet, content: {
-                                            DawriyahTurns()
-                                        })
-                                    }
-                    
+                        showSheet = true
+                    } label: {
+                        Image(systemName: "ellipsis").foregroundColor(Color("TitleC"))
+                    }
+                    .offset(x: 150, y: -40)
+                    .sheet(isPresented: $showSheet, content: {
+                        DawriyahTurns()
+                    })
+                }
+                
                 
                 Rectangle()
                     .foregroundColor(.gray)
@@ -83,14 +87,15 @@ struct CalendarView: View {
                     DatePicker("Select Date", selection: $selectedDate, displayedComponents: [.date])
                         .padding(.horizontal)
                         .datePickerStyle(.graphical)
-                        .onChange(of: selectedDate) {
-                            newValue in isSheetPresented = true
-                        }
-                        Divider()
-                        }.sheet(isPresented: $isSheetPresented) {
-                                    BusyMembers()
-             }
-                //.padding(.vertical, 100)
+                        .onChange(of: selectedDate) { newValue in
+                            checkAvailability()
+                            }
+                    
+                    Divider()
+                }
+                .sheet(isPresented: $isSheetPresented) {
+                    BusyMembers(busyMembers: $busyMembers)
+                }
             }.navigationTitle("Family").toolbar {
                 Button(action:{
                     DawriyahSheet.toggle()
@@ -99,13 +104,22 @@ struct CalendarView: View {
                         .font(.largeTitle)
                         .foregroundColor(Color("Color2"))
                 }}
-                .sheet(isPresented: $DawriyahSheet, content: {
-                    DawriyahDaySheet()})
-        }.accentColor(Color("Color2"))
+            .sheet(isPresented: $DawriyahSheet, content: {
+                DawriyahDaySheet()})
+            
+        }
+        .accentColor(Color("Color2"))
         
     }
-    }
     
+    func checkAvailability() {
+        let isDateAvailable = true
+        
+        if isDateAvailable {
+            isSheetPresented = true
+        }
+    }
+}
 #Preview {
     CalendarView()
 }

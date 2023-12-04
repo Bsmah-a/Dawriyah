@@ -29,6 +29,7 @@ struct CalendarView: View {
         NavigationView {
             // groups
             VStack {
+               
                 Rectangle()
                     .foregroundColor(.gray)
                     .frame(width:350,height: 1)
@@ -108,10 +109,9 @@ struct CalendarView: View {
                 DawriyahDaySheet()})
             
         }
-        .accentColor(Color("Color2"))
         
     }
-    
+  
     func checkAvailability() {
         let isDateAvailable = true
         
@@ -119,6 +119,7 @@ struct CalendarView: View {
             isSheetPresented = true
         }
     }
+
 }
 #Preview {
     CalendarView()

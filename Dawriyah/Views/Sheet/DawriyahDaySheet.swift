@@ -117,7 +117,7 @@ struct DawriyahDaySheet: View {
         record.setValue(endD, forKey: "endTime")
         record.setValue(notes, forKey: "notes")
 
-        let privateDatabase = CKContainer.default().privateCloudDatabase
+        let privateDatabase = CKContainer(identifier: "iCloud.Dawriyah").publicCloudDatabase
 
         privateDatabase.save(record) { (savedRecord, error) in
             if error == nil {

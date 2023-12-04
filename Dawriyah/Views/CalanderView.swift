@@ -108,7 +108,7 @@ struct CalendarView: View {
             .sheet(isPresented: $DawriyahSheet, content: {
                 DawriyahDaySheet()})
             
-        }
+        }.accentColor(Color("Color2"))
         
     }
   

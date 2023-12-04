@@ -95,9 +95,10 @@ struct CalendarView: View {
                     Button(action: {
                         presentationMode.wrappedValue.dismiss()
                     }) {
-                        Image(systemName: "chevron.left").foregroundColor(Color("Color2"))
-                        Text("Back").foregroundColor(Color("Color2"))
-                    }
+   
+                            Image(systemName: "chevron.left").foregroundColor(Color("Color2"))
+                            Text("Back").font(.title3).bold().foregroundColor(Color("Color2"))
+                        }
                 }
                 ToolbarItem(placement: .navigationBarTrailing) {
                     Button(action: {

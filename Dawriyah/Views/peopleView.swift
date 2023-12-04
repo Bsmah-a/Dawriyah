@@ -44,7 +44,7 @@ struct peopleView: View {
                                 Image("memoji\(peopleInfo.emoji)")
                                 Text(peopleInfo.name)
                                     Spacer()
-                                    Text("Add").frame(width: 95,height:40 ).background(Color("Color2")).foregroundColor(.white).cornerRadius(10)
+                                    Text("Add").frame(width: 95,height:40 ).background(Color("Color2")).foregroundColor(.white).cornerRadius(15)
                                 
                                 }.background(Color("backg"))
                             }

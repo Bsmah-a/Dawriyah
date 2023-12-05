@@ -38,7 +38,7 @@ struct GroupsView: View {
                     HStack{Spacer()}
                     ForEach(groupName, id: \.self) { group in
                         NavigationLink {
-                            CalendarView()
+                            CalendarPage()
                         } label: {
                             ZStack{
                                 RoundedRectangle(cornerRadius: /*@START_MENU_TOKEN@*/25.0/*@END_MENU_TOKEN@*/).frame(width: 312, height: 140).foregroundColor(Color("Color2")).opacity(0.40)
@@ -82,8 +82,7 @@ struct GroupsView: View {
             }
             
             
-            .background{
-                Color("backg").ignoresSafeArea()
+            .background{Color("backg").ignoresSafeArea()
             }
             
         }.accentColor(Color("Color2"))

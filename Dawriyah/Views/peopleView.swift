@@ -13,8 +13,8 @@ struct peopleView: View {
     
     @State private var isAddingPeople = true
     @State private var peoples:[ peopleInfo] = []
-    
-    
+    @State var peopleDic: [peopleInfo:Bool] = [:]
+   
     let people:[ peopleInfo] = [
         peopleInfo(emoji: 1, name: "Renad"),
         peopleInfo(emoji: 2, name: "Basemah"),
@@ -51,17 +51,20 @@ struct peopleView: View {
                                     Spacer()
                                     
                                     Button(action: {
-                                        if isAddingPeople {
+                                        
+                                        
+                                        peopleDic[peopleInfo]?.toggle()
+                                       // if isAddingPeople {
                      // Simulating CloudKit record addition
                     // let newPerson = peopleInfo(emoji: 4, name: "New Person")
                           //   peoples.append(newPerson)
                                             
                        // Call CloudKit function to add newPerson to  CloudKit database
                      // Example: cloudKitManager.addPersonToCloudKit(newPerson)
-                                        }
-                                        isAddingPeople.toggle()
+                                      //  }
+//                                        isAddingPeople.toggle()
                                     }, label: {
-                                        if isAddingPeople {
+                                        if !(peopleDic[peopleInfo] ?? false){
                                             Image(systemName: "plus.circle.fill").foregroundColor(.gray).opacity(0.5).font(.title).background(Color.white).cornerRadius(15)
                                                      } else {
                                                          Image(systemName: "checkmark.circle.fill")
@@ -75,6 +78,13 @@ struct peopleView: View {
             }.navigationTitle("add people").foregroundColor(Color("Color2")).bold()
                     
         }.accentColor(Color("Color2"))
+            .onAppear{
+                self.people.forEach { person in
+                    self.peopleDic[person] = false
+                }
+                
+            }
+            
             }
     
         }

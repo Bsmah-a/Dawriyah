@@ -6,7 +6,7 @@
 //
 
 import SwiftUI
-struct peopleInfo: Identifiable{
+struct peopleInfo : Identifiable, Hashable {
     let id: UUID = UUID()
     let emoji: Int
     let name: String

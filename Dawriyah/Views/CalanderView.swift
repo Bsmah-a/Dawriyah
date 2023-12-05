@@ -25,7 +25,6 @@ struct CalendarView: View {
     @State private var busyDays: Set<Date> = []
 
     var body: some View {
-        NavigationView {
             VStack {
                 Rectangle()
                     .foregroundColor(.gray)
@@ -95,9 +94,6 @@ struct CalendarView: View {
                     Button(action: {
                         presentationMode.wrappedValue.dismiss()
                     }) {
-   
-                            Image(systemName: "chevron.left").foregroundColor(Color("Color2"))
-                            Text("Back").font(.title3).bold().foregroundColor(Color("Color2"))
                         }
                 }
                 ToolbarItem(placement: .navigationBarTrailing) {
@@ -112,7 +108,6 @@ struct CalendarView: View {
             }
             .sheet(isPresented: $DawriyahSheet) {
                 DawriyahDaySheet()
-            }
         }
     }
 

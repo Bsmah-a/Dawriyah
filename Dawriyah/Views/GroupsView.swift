@@ -37,21 +37,27 @@ struct GroupsView: View {
                     
                     HStack{Spacer()}
                     ForEach(groupName, id: \.self) { group in
-                        ZStack{
-                            RoundedRectangle(cornerRadius: /*@START_MENU_TOKEN@*/25.0/*@END_MENU_TOKEN@*/).frame(width: 312, height: 140).foregroundColor(Color("Color2")).opacity(0.40)
-                            VStack(alignment: .leading, spacing: 20){
-                                Text(group).padding(.leading, 15.0).foregroundColor(Color("TitleC")).bold().font(.title2)
-                                RoundedRectangle(cornerRadius: /*@START_MENU_TOKEN@*/25.0/*@END_MENU_TOKEN@*/).frame(width: 300, height: 2).foregroundColor(.gray).opacity(0.30)
-                                
-                                HStack(spacing:-20){
-                                    ForEach(peoples) { person in
-                                        Image("memoji\(person.emoji)")}
+                        NavigationLink {
+                            CalendarView()
+                        } label: {
+                            ZStack{
+                                RoundedRectangle(cornerRadius: /*@START_MENU_TOKEN@*/25.0/*@END_MENU_TOKEN@*/).frame(width: 312, height: 140).foregroundColor(Color("Color2")).opacity(0.40)
+                                VStack(alignment: .leading, spacing: 20){
+                                    Text(group).padding(.leading, 15.0).foregroundColor(Color("TitleC")).bold().font(.title2)
+                                    RoundedRectangle(cornerRadius: /*@START_MENU_TOKEN@*/25.0/*@END_MENU_TOKEN@*/).frame(width: 300, height: 2).foregroundColor(.gray).opacity(0.30)
                                     
-                                    Image(systemName: "chevron.right").padding(.leading,90).foregroundColor(Color("Color2"))
+                                    HStack(spacing:-20){
+                                        ForEach(peoples) { person in
+                                            Image("memoji\(person.emoji)")}
+                                        
+                                        Image(systemName: "chevron.right").padding(.leading,90).foregroundColor(Color("Color2"))
+                                    }
+                                    .padding(.leading, 20.0)
                                 }
-                                .padding(.leading, 20.0)
                             }
                         }
+
+
                     }
                     
                     

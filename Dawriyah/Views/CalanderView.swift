@@ -4,7 +4,6 @@
 //
 //  Created by Bsmah Ali on 08/05/1445 AH.
 //
-
 import SwiftUI
 
 struct CalendarView: View {
@@ -99,100 +98,106 @@ struct CalendarView: View {
  
 }
 //calendar
-                struct CalendarPage: View {
-                    
-                    @State private var selectedDate: Date?
-                    @State private var busyDays: [Date] = [] // Array to store busy days
-                    @State private var currentDate: Date = Date()
-                    @State private var isSheetPresented: Bool = false
-                    @State private var selectedDay: Date?
-                    @State private var busyMembers: [peopleInfo] = []
-                    
-                    var body: some View {
-                        NavigationView {
-                            VStack {
-                                Spacer()
-                                CalendarView()
-                                HStack {
-                                    Button("<") {
-                                        
-                                        currentDate = Calendar.current.date(byAdding: .month, value: -1, to: currentDate) ?? currentDate
-                                    }.font(/*@START_MENU_TOKEN@*/.title/*@END_MENU_TOKEN@*/).padding(.leading)
-                                    Spacer()
-                                    Text("\(currentDate, formatter: DateFormatter.monthYear)")
-                                        .font(.title2)
-                                    Spacer()
-                                    Button(">") {
-                                        currentDate = Calendar.current.date(byAdding: .month, value: 1, to: currentDate) ?? currentDate
-                                    }.font(/*@START_MENU_TOKEN@*/.title/*@END_MENU_TOKEN@*/).padding(.trailing)
-                                }
-                                .padding()
-                               
-                                Calendar1View(selectedDate: $selectedDate, busyDays: $busyDays, currentDate: $currentDate) { day in
-                                    isSheetPresented = true
-                                    selectedDay = day
-                                }
-                                .padding()
-                                .sheet(isPresented: $isSheetPresented) {
-                                               BusyDaySheet(isBusy: busyDays.contains(selectedDay ?? Date()), onMarkBusy: {
-                                                   if let selectedDay = selectedDay {
-                                                       if busyDays.contains(selectedDay) {
-                                                           busyDays.removeAll { $0 == selectedDay }
-                                                       } else {
-                                                           busyDays.append(selectedDay)
-                                                       }
-                                                   }
-                                                   isSheetPresented = false
-                                               })
-                                           }
-                                }
-                                
-                                Spacer()
-                                
-                            }.accentColor(Color("Color2"))
-                        }
-                    }
-                
-                
-                struct Calendar1View: View {
-                    @Binding var selectedDate: Date?
-                    @Binding var busyDays: [Date]
-                    @Binding var currentDate: Date
-                    var onTapDay: ((Date) -> Void)?
-                    
-                    var body: some View {
-                        VStack {
-                            // Days of the week
-                            HStack(spacing: 27) {
-                                ForEach(DateFormatter().shortWeekdaySymbols, id: \.self) { day in
-                                    Text(day)
-                                        .font(.subheadline)
-                                        .foregroundColor(.secondary)
-                                }
-                            }
-                            
-                            // Calendar days
-                            LazyVGrid(columns: Array(repeating: GridItem(), count: 7)) {
-                                ForEach(monthDays(), id: \.self) { day in
-                                    DayView(date: day, isSelected: selectedDate == day, isBusy: busyDays.contains(day))
-                                        .onTapGesture {
-                                            selectedDate = day
-                                            onTapDay?(day)
-                                        
-                                        }
-                                }
-                            }
-                        }
-                    }
-                    
-                    // Helper function to get the days of the month
-                    private func monthDays() -> [Date] {
-                        let calendar = Calendar.current
-                        let monthRange = calendar.range(of: .day, in: .month, for: currentDate)!
-                        let days = monthRange.map { calendar.date(bySetting: .day, value: $0, of: currentDate)! }
-                        return days
-                    }
+struct CalendarPage: View {
+    @State private var selectedDate: Date?
+    @State private var busyDays: [Date] = [] // Array to store busy days
+    @State private var currentDate: Date = Date()
+    @State private var isSheetPresented: Bool = false
+    @State private var selectedDay: Date?
+    @State private var busyMembers: [peopleInfo] = []
+
+    // Pass the 'people' array to CalendarPage
+    let people: [peopleInfo] = [
+        peopleInfo(emoji: 1, name: "Renad")
+      ]
+
+    var body: some View {
+        NavigationView {
+            VStack {
+                Spacer()
+                CalendarView()
+                HStack {
+                    Button("<") {
+                        currentDate = Calendar.current.date(byAdding: .month, value: -1, to: currentDate) ?? currentDate
+                    }.font(.title).padding(.leading)
+                    Spacer()
+                    Text("\(currentDate, formatter: DateFormatter.monthYear)")
+                        .font(.title2)
+                    Spacer()
+                    Button(">") {
+                        currentDate = Calendar.current.date(byAdding: .month, value: 1, to: currentDate) ?? currentDate
+                    }.font(.title).padding(.trailing)
                 }
+                .padding()
+
+                // Pass 'people' to Calendar1View
+                Calendar1View(selectedDate: $selectedDate, busyDays: $busyDays, currentDate: $currentDate, people: people) { day in
+                    isSheetPresented = true
+                    selectedDay = day
+                }
+                .padding()
+                .sheet(isPresented: $isSheetPresented) {
+                    BusyDaySheet(
+                        isBusy: busyDays.contains(selectedDay ?? Date()),
+                        onMarkBusy: {
+                            if let selectedDay = selectedDay {
+                                if busyDays.contains(selectedDay) {
+                                    busyDays.removeAll { $0 == selectedDay }
+                                } else {
+                                    busyDays.append(selectedDay)
+                                }
+                            }
+                            isSheetPresented = false
+                        },
+                        people: people
+                    )
+                }
+
+                Spacer()
+            }
+            .accentColor(Color("Color2"))
+        }
+    }
+}
+                
+struct Calendar1View: View {
+    @Binding var selectedDate: Date?
+    @Binding var busyDays: [Date]
+    @Binding var currentDate: Date
+    var people: [peopleInfo] // Add people parameter
+    var onDayTapped: (Date) -> Void
+
+    var body: some View {
+        VStack {
+            // Days of the week
+            HStack(spacing: 27) {
+                ForEach(DateFormatter().shortWeekdaySymbols, id: \.self) { day in
+                    Text(day)
+                        .font(.subheadline)
+                        .foregroundColor(.secondary)
+                }
+            }
+
+            // Calendar days
+            LazyVGrid(columns: Array(repeating: GridItem(), count: 7)) {
+                ForEach(monthDays(), id: \.self) { day in
+                    DayView(date: day, isSelected: selectedDate == day, isBusy: busyDays.contains(day))
+                        .onTapGesture {
+                            selectedDate = day
+                            onDayTapped(day)
+                        }
+                }
+            }
+        }
+    }
+    // Helper function to get the days of the month
+    private func monthDays() -> [Date] {
+        let calendar = Calendar.current
+        let monthRange = calendar.range(of: .day, in: .month, for: currentDate)!
+        let days = monthRange.map { calendar.date(bySetting: .day, value: $0, of: currentDate)! }
+        return days
+    }
+}
                 
                 struct DayView: View {
                     let date: Date
@@ -216,33 +221,57 @@ struct CalendarView: View {
                         }
                     }
                 }
-    struct BusyDaySheet: View {
-        var isBusy: Bool
-        var onMarkBusy: () -> Void
-        var body: some View {
-            NavigationView {
-                VStack {
-                    Text("BusyMembers")
-                        .font(.title)
-                        .padding(.trailing,10)
+struct BusyDaySheet: View {
+    var isBusy: Bool
+    var onMarkBusy: () -> Void
+    var people: [peopleInfo]
 
-                    Spacer()
-                    
+    @State private var showUserInfo: Bool = false // Add a state variable
 
-   
-                }.toolbar
-                {Button(action: {
-                    onMarkBusy()
-                }) {
-                    Text(isBusy ? Image(systemName: "plus.app.fill") : Image(systemName: "plus.app"))
-                        .padding(.top,95)
-                        .foregroundColor(Color("Color2"))
-                        .cornerRadius(8)
-                }}
-        }
+    var body: some View {
+        NavigationView {
+            VStack {
+                Text("BusyMembers")
+                    .font(.title).bold()
+                    .padding(.leading, 10)
+                
+                Rectangle()
+                    .foregroundColor(.gray)
+                    .frame(width:335,height: 1)
+                    .padding(.vertical,-20)
+
+                Spacer()
+
+                if isBusy || showUserInfo {
+                    ForEach(people) { person in
+                        HStack {
+                            Image("memoji\(person.emoji)")
+                                .resizable()
+                                .scaledToFit()
+                                .frame(width: 40, height: 40)
+                            Text(person.name)
+                                .font(.title3)
+                        }
+                    }
+                }
+
+                Spacer()
+
+               
+            } .toolbar {Button(action: {
+                onMarkBusy()
+                showUserInfo.toggle() // Toggle the state to show/hide user info
+            }) {
+                Text(isBusy ? Image(systemName: "plus.app.fill") : Image(systemName: "plus.app"))
+                    .padding(.top,90)
+                    .padding(.trailing,20)
+                    .foregroundColor(Color("Color2"))
+                    .cornerRadius(8)
+            }}
+//            .padding()
         }
     }
-
+}
  extension Date {
      var day: Int {
          let calendar = Calendar.current

@@ -5,10 +5,11 @@
 //  Created by Renad Alqarni on 27/11/2023.
 //
 import SwiftUI
+import CloudKit
 
 struct DawriyahTurns: View {
-    @State private var items = ["Raseel", "Jude", "Haifa", "Renad"]
-    @State private var memoji = ["memoji1", "memoji2", "memoji3", "memoji1"]
+    @State private var items: [String] = []
+    @State private var memoji: [String] = []
 
     var body: some View {
         NavigationView {
@@ -31,11 +32,10 @@ struct DawriyahTurns: View {
                                 Text(items[index].capitalized).font(.system(size: 20))
                             }
                         }
-                        .onMove { indices, newOffset in
-                            items.move(fromOffsets: indices, toOffset: newOffset)
-                            memoji.move(fromOffsets: indices, toOffset: newOffset)
-                        }
                     }
+                }
+                .onAppear {
+                    fetchDataFromCloudKit()
                 }
                 .navigationTitle("Dawriyah Turns")
                 .navigationBarItems(leading: EditButton())
@@ -43,8 +43,30 @@ struct DawriyahTurns: View {
             .accentColor(Color("Color2"))
         }
     }
+
+    func fetchDataFromCloudKit() {
+        let container = CKContainer.default()
+        let publicDatabase = CKContainer(identifier: "iCloud.Dawriyah").publicCloudDatabase
+
+
+        let query = CKQuery(recordType: "Users", predicate: NSPredicate(value: true))
+
+        publicDatabase.perform(query, inZoneWith: nil) { (records, error) in
+            if let error = error {
+                print("Error fetching records: \(error.localizedDescription)")
+            } else if let records = records {
+                DispatchQueue.main.async {
+                    self.items = records.compactMap { $0["name"] as? String }
+                    self.memoji = records.compactMap { $0["image"] as? String }
+                }
+            }
+        }
+    }
+
 }
 
-#Preview {
-    DawriyahTurns()
+struct DawriyahTurns_Previews: PreviewProvider {
+    static var previews: some View {
+        DawriyahTurns()
+    }
 }

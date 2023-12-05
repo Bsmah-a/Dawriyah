@@ -37,12 +37,12 @@ struct peopleView: View {
                 
                 RoundedRectangle(cornerRadius: 25).fill(Color("Color2")).frame(width: 150, height: 4).padding()
                 }
-                   ScrollView(.horizontal){
-                        HStack(spacing: 10){
-                            ForEach(people) { person in
-                                Image("memoji\(person.emoji)")}
-                        }
-                    }.padding()
+//                   ScrollView(.horizontal){
+//                        HStack(spacing: 10){
+//                            ForEach(people) { person in
+//                                Image("memoji\(person.emoji)")}
+//                        }
+//                    }.padding()
                             List(people){peopleInfo in
                                 HStack{
                                 Image("memoji\(peopleInfo.emoji)")
@@ -54,6 +54,7 @@ struct peopleView: View {
                                         
                                         
                                         peopleDic[peopleInfo]?.toggle()
+                                        
                                        // if isAddingPeople {
                      // Simulating CloudKit record addition
                     // let newPerson = peopleInfo(emoji: 4, name: "New Person")
@@ -63,6 +64,7 @@ struct peopleView: View {
                      // Example: cloudKitManager.addPersonToCloudKit(newPerson)
                                       //  }
 //                                        isAddingPeople.toggle()
+                                        
                                     }, label: {
                                         if !(peopleDic[peopleInfo] ?? false){
                                             Image(systemName: "plus.circle.fill").foregroundColor(.gray).opacity(0.5).font(.title).background(Color.white).cornerRadius(15)
@@ -75,7 +77,8 @@ struct peopleView: View {
                  }.padding(.top, 30.0)
                         }
               
-            }.navigationTitle("add people").foregroundColor(Color("Color2")).bold()
+            }.navigationTitle("Add people").foregroundColor(Color("Color2")).bold()
+                .padding()
                     
         }.accentColor(Color("Color2"))
             .onAppear{

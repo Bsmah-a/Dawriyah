@@ -39,7 +39,7 @@ struct DawriyahDaySheet: View {
                     Text("Choose day")
                         .font(.title2)
                         .foregroundColor(Color("Color2"))
-                        .padding(.leading, -70.0)
+                        .padding(.leading, -100.0)
 
                     DatePicker("", selection: $dawriyahDay, displayedComponents: [.date])
                         .frame(width: 105.0)

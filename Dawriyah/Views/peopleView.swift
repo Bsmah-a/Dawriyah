@@ -33,9 +33,9 @@ struct peopleView: View {
                 Color("backg").ignoresSafeArea()
                 VStack{
                 HStack(spacing: 30){
-                    RoundedRectangle (cornerRadius: 25).fill(Color("Color2")).frame(width: 150, height: 4)
-                
-                RoundedRectangle(cornerRadius: 25).fill(Color("Color2")).frame(width: 150, height: 4).padding()
+                    RoundedRectangle(cornerRadius: 100).fill(Color("Color2")).frame(width: 145, height: 8)
+                    
+                    RoundedRectangle(cornerRadius: 25).fill(Color("Color2")).frame(width: 145, height: 8).padding()
                 }
 //                   ScrollView(.horizontal){
 //                        HStack(spacing: 10){

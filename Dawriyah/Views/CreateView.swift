@@ -21,9 +21,9 @@ struct CreateView: View {
                     Color("backg").ignoresSafeArea()
                 VStack(spacing: 20){
                     HStack(spacing:30){
-                        RoundedRectangle(cornerRadius: 25).fill(Color("Color2")).frame(width: 150, height: 4)
+                        RoundedRectangle(cornerRadius: 100).fill(Color("Color2")).frame(width: 145, height: 8)
                         
-                        RoundedRectangle(cornerRadius: 25).fill(Color("Color2")).frame(width: 150, height: 4).opacity(0.37).padding()
+                        RoundedRectangle(cornerRadius: 25).fill(Color("Color2")).frame(width: 145, height: 8).opacity(0.37).padding()
                     }
                     
                     .padding(.bottom, 30.0)

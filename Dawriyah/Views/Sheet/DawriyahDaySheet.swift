@@ -81,7 +81,6 @@ struct DawriyahDaySheet: View {
                     .padding(.trailing, 250.0)
 
                 TextField("", text: $notes)
-                    .padding()
                     .frame(width: 302, height: 150)
                     .background(Color("TextField"))
                     .cornerRadius(15)

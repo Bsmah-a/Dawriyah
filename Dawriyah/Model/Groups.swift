@@ -6,9 +6,11 @@
 //
 
 import Foundation
+
 struct Groups: Identifiable{
     let id: UUID = UUID()
     let name: String
     let busyDays = [Date()]
     let startDay = Date()
+
 }

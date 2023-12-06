@@ -16,8 +16,8 @@ struct GroupsView: View {
         peopleInfo(emoji: 1, name: "Renad"),
         peopleInfo(emoji: 2, name: "Basemah"),
         peopleInfo(emoji: 3, name: "Reema"),
-        peopleInfo(emoji: 1, name: "Taif"),
-        peopleInfo(emoji: 1, name: "Sara")
+        peopleInfo(emoji: 5, name: "Taif"),
+        peopleInfo(emoji: 6, name: "Sara")
     ]
     
     var body: some View {
@@ -85,18 +85,18 @@ struct GroupsView: View {
                                 RoundedRectangle(cornerRadius: /*@START_MENU_TOKEN@*/25.0/*@END_MENU_TOKEN@*/).frame(width: 322, height: 101).foregroundColor(Color("Color2")).opacity(0.40)
                                 VStack(alignment: .leading, spacing: 20){
                                     Text(group).padding(.leading, 60.0) .foregroundColor(Color.black).fontWeight(.regular).font(.system(size: 20)).offset(y: 25)
-//                                    RoundedRectangle(cornerRadius: /*@START_MENU_TOKEN@*/25.0/*@END_MENU_TOKEN@*/).frame(width: 300, height: 2).foregroundColor(.gray).opacity(0.30)
+                                    
                                         Divider()
                                         .padding(.horizontal, 50)
                                         .padding(.top, 12)
                                 
-                                    HStack(spacing:-20){
+                                    HStack(spacing:-25){
                                         ForEach(peoples) { person in
                                             Image("memoji\(person.emoji)")}
-                                        .offset(y: -20) // Adjust the value to move the images up
-                                        .scaleEffect(0.8) // Adjust the value to make the images smaller
-                                        .offset(x: 45)
-                                        Image(systemName: "chevron.right").padding(.leading,150)  .offset(y:-19).foregroundColor(Color("Color2"))
+                                        .offset(y: -25) // Adjust the value to move the images up
+                                        .scaleEffect(0.7) // Adjust the value to make the images smaller
+                                        .offset(x: 41)
+                                        Image(systemName: "chevron.right").padding(.leading,177)  .offset(y:-19).foregroundColor(Color("Color2"))
                                     }
                                     .padding(.leading, 4.0)
                                  
@@ -112,7 +112,7 @@ struct GroupsView: View {
                         
                         RoundedRectangle(cornerRadius: /*@START_MENU_TOKEN@*/25.0/*@END_MENU_TOKEN@*/).frame(width: 322, height: 101).foregroundColor(Color("Color2")).opacity(0.40)
                         NavigationLink(destination: CreateView()){
-                            Image(systemName: "plus.circle").font(.system(size: 60)).foregroundColor(Color("Color2")).opacity(0.40)}
+                            Image(systemName: "plus.circle").font(.system(size: 40)).foregroundColor(Color("Color2")).opacity(0.40)}
                         
                     }
                     .padding(.top, 20)

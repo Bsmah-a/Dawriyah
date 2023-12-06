@@ -14,47 +14,71 @@ struct CalendarView: View {
     @State private var showSheet = false
     @State private var isSheetPresented = false
     @State private var DawriyahSheet = false
-    let people:[ peopleInfo] = [
+    let people: [peopleInfo] = [
         peopleInfo(emoji: 1, name: "Renad"),
         peopleInfo(emoji: 2, name: "Basemah"),
         peopleInfo(emoji: 3, name: "Reema"),
         peopleInfo(emoji: 1, name: "Taif")]
     @State private var busyMembers: [peopleInfo] = []
     @State private var busyDays: Set<Date> = []
-    
-    
-    
+
     var body: some View {
         NavigationView {
-            // groups
             VStack {
-                
+                HStack {
+                    Text("Family")
+                        .foregroundColor(Color.black).fontWeight(.bold).font(.system(size: 34))
+                        .offset(y: 6)
+                        .offset(x: 10)
+                    
+                    
+
+                    Spacer()
+
+                    
+                    Button(action: {
+                        DawriyahSheet.toggle()
+                    }) {
+                        Image(systemName: "pin.circle")
+                            .font(.largeTitle)
+                            .foregroundColor(Color("Color2"))
+                            .offset(x: 10)
+                            .offset(y: 11)
+                            .scaleEffect(1)
+                    }
+                    .padding(.trailing) // Add some padding to the button
+                }
+                .padding([.top, .leading, .trailing]) // Add padding to the HStack
+
                 Rectangle()
-                    .foregroundColor(.gray)
-                    .frame(width:350,height: 1)
-                    .padding(.vertical,-40)
-                
+                    .frame(height: 1) // Adjust the height to make it thicker
+                    .foregroundColor(Color.gray) // Set the color
+                    .padding(.horizontal, 10)
+                    .opacity(0.5)
+
                 Text("Dawriyah turns")
                     .font(.title2)
-                    .padding(.vertical,-40)
-                    .offset(x:-100)
+                    .padding(.vertical, -5)
+                    .offset(x: -100)
+                    .offset(y: 20)
                 
                 ZStack{
                     
                     
                     Rectangle()
                         .foregroundColor(Color("Color3"))
-                        .frame(width: 340, height: 60)
-                        .cornerRadius(15)
-                        .offset(x: 5, y: -20)
+                        .frame(width: 350, height: 50)
+                        .cornerRadius(18)
+                        .offset(x: 5, y: 15)
                         .padding()
                     
                     
                     
-                    HStack(spacing: 10){
+                    HStack(spacing: -5){
                         ForEach(people) { person in
                             Image("memoji\(person.emoji)")
-                                .offset(x:-10,y:-20)
+                                .offset(x:-90,y:20)
+                                .scaleEffect(0.7)
                         }
                         
                     }
@@ -64,32 +88,41 @@ struct CalendarView: View {
                     } label: {
                         Image(systemName: "ellipsis").foregroundColor(Color("TitleC"))
                     }
-                    .offset(x: 150, y: -20)
+                    .offset(x: 140, y: 15)
                     .sheet(isPresented: $showSheet, content: {
                         DawriyahTurns()
                     })
+                    
+                    
+                    Text("|")
+                        .offset(x: 120, y: 8)
+                        .foregroundColor(.gray)
+                    Text("|")
+                        .offset(x: 120, y: 10)
+                        .foregroundColor(.gray)
+                    Text("|")
+                        .offset(x: 120, y: 20)
+                        .foregroundColor(.gray)
+                    
                 }
                 
                 
                 Rectangle()
-                    .foregroundColor(.gray)
-                    .frame(width:350,height: 1)
-                    .padding(.vertical,-15)
+                    .frame(height: 1) // Adjust the height to make it thicker
+                    .foregroundColor(Color.gray) // Set the color
+                    .padding(.horizontal, 40)
+                    .opacity(0.5)
+                    .offset(y: 10)
+                
                 
                 Text("Highlight your busy days !")
                     .font(.title2)
-                    .padding(.vertical,-10)
-                    .offset(x:-50)
+                    .padding(.vertical, 30)
+                    .offset(x:-50, y: -5)
                 
-            }.navigationTitle("Family").toolbar {
-                Button(action:{
-                    DawriyahSheet.toggle()
-                }) {
-                    Image(systemName: "pin.circle")
-                        .font(.largeTitle)
-                        .foregroundColor(Color("Color2"))
-//                        .padding(.vertical,-50)
-                }}
+                Spacer()
+            }
+    
             .sheet(isPresented: $DawriyahSheet, content: {
                 DawriyahDaySheet()})
             
@@ -114,7 +147,7 @@ struct CalendarPage: View {
     var body: some View {
         NavigationView {
             VStack {
-                Spacer()
+               // Spacer()
                 CalendarView()
                 HStack {
                     Button("<") {
@@ -129,6 +162,7 @@ struct CalendarPage: View {
                     }.font(.title).padding(.trailing)
                 }
                 .padding()
+                .offset(y: -50)
 
                 // Pass 'people' to Calendar1View
                 Calendar1View(selectedDate: $selectedDate, busyDays: $busyDays, currentDate: $currentDate, people: people) { day in
@@ -153,7 +187,7 @@ struct CalendarPage: View {
                     )
                 }
 
-                Spacer()
+              //  Spacer()
             }
             .accentColor(Color("Color2"))
         }
@@ -175,6 +209,7 @@ struct Calendar1View: View {
                     Text(day)
                         .font(.subheadline)
                         .foregroundColor(.secondary)
+                        .offset(y: -50)
                 }
             }
 
@@ -185,6 +220,7 @@ struct Calendar1View: View {
                         .onTapGesture {
                             selectedDate = day
                             onDayTapped(day)
+                            
                         }
                 }
             }
@@ -211,6 +247,7 @@ struct Calendar1View: View {
                                 .padding(8)
                                 .background(isSelected ? Color.brown : Color.clear)
                                 .clipShape(Circle())
+                                .offset(y: -45)
                             
                             // Circle underneath for busy days
                             Circle()
@@ -221,6 +258,7 @@ struct Calendar1View: View {
                         }
                     }
                 }
+
 struct BusyDaySheet: View {
     var isBusy: Bool
     var onMarkBusy: () -> Void
@@ -255,7 +293,7 @@ struct BusyDaySheet: View {
                     }
                 }
 
-                Spacer()
+              //  Spacer()
 
                
             } .toolbar {Button(action: {
@@ -267,6 +305,7 @@ struct BusyDaySheet: View {
                     .padding(.trailing,20)
                     .foregroundColor(Color("Color2"))
                     .cornerRadius(8)
+                
             }}
 //            .padding()
         }

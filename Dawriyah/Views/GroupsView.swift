@@ -96,7 +96,7 @@ struct GroupsView: View {
                                         .offset(y: -25) // Adjust the value to move the images up
                                         .scaleEffect(0.7) // Adjust the value to make the images smaller
                                         .offset(x: 41)
-                                        Image(systemName: "chevron.right").padding(.leading,177)  .offset(y:-19).foregroundColor(Color("Color2"))
+                                        Image(systemName: "chevron.right").padding(.leading,175)  .offset(y:-19).foregroundColor(Color("Color2"))
                                     }
                                     .padding(.leading, 4.0)
                                  

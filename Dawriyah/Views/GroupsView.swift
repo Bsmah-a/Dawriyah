@@ -6,37 +6,25 @@
 //
 
 import SwiftUI
+import CloudKit
 
 struct GroupsView: View {
-    
     @State private var isShowingProfileSheet = false
+    @State private var peoples: [peopleInfo] = []
     
-    let groupName:[String]=["family", "Friends1", "Friend2"]
-    let peoples:[ peopleInfo] = [
-        peopleInfo(emoji: 1, name: "Renad"),
-        peopleInfo(emoji: 2, name: "Basemah"),
-        peopleInfo(emoji: 3, name: "Reema"),
-        peopleInfo(emoji: 1, name: "Taif"),
-        peopleInfo(emoji: 1, name: "Sara")
-    ]
-    
+    //let groups: [Groups] = [Groups(name: "Family"), Groups(name: "Friends1"), Groups(name: "Friend3")]
+
+    let groupName: [String] = ["family", "Friends1", "Friend2"]
+
     var body: some View {
         NavigationStack{
-            VStack{
-                
-                /* Button(action:{
-                 isShowingProfileSheet.toggle()
-                 }) {
-                 Image(systemName: "person.circle").font(.largeTitle).foregroundColor(Color("Color2")).padding(.top, -76.0).padding(.leading, 290.0)}
-                 
-                 .sheet(isPresented: $isShowingProfileSheet) {
-                 ProfileSheet()
-                 }*/
-                
-                ScrollView{
-                    
+            
+            VStack {
+                ScrollView {
                     HStack{Spacer()}
+                    
                     ForEach(groupName, id: \.self) { group in
+                        
                         NavigationLink {
                             CalendarPage()
                         } label: {
@@ -46,20 +34,17 @@ struct GroupsView: View {
                                     Text(group).padding(.leading, 15.0).foregroundColor(Color("TitleC")).bold().font(.title2)
                                     RoundedRectangle(cornerRadius: /*@START_MENU_TOKEN@*/25.0/*@END_MENU_TOKEN@*/).frame(width: 300, height: 2).foregroundColor(.gray).opacity(0.30)
                                     
-                                    HStack(spacing:-20){
+                                    HStack(spacing: -20) {
                                         ForEach(peoples) { person in
-                                            Image("memoji\(person.emoji)")}
+                                            Image("memoji\(person.emoji)")
+                                        }
                                         
-                                        Image(systemName: "chevron.right").padding(.leading,90).foregroundColor(Color("Color2"))
-                                    }
-                                    .padding(.leading, 20.0)
-                                }
-                            }
-                        }
-
-
+                                        Image(systemName: "chevron.right")
+                                            .padding(.leading, 90)
+                                            .foregroundColor(Color("Color2"))
+                                    }}}}
+                        .padding(.leading, 20.0)
                     }
-                    
                     
                     ZStack{
                         RoundedRectangle(cornerRadius: /*@START_MENU_TOKEN@*/25.0/*@END_MENU_TOKEN@*/).frame(width: 312, height: 125).foregroundColor(Color("Color2")).opacity(0.40)
@@ -69,24 +54,55 @@ struct GroupsView: View {
                     
                     Spacer()
                 }.padding(.top, 40.0)
-            }.navigationTitle("Dawriyah Groups") .toolbar {
-                Button(action:{
-                    isShowingProfileSheet.toggle()
-                }) {
-                    Image(systemName: "person.circle")
-                        .font(.largeTitle)
-                        .foregroundColor(Color("Color2"))
+                
+                    .onAppear {
+                        fetchDataFromCloudKit()
+                    }}
+        .navigationTitle("Dawriyah Groups") .toolbar {
+                       Button(action:{
+                           isShowingProfileSheet.toggle()
+                       }) {
+                           Image(systemName: "person.circle")
+                               .font(.largeTitle)
+                               .foregroundColor(Color("Color2"))
+                       }
+                       .sheet(isPresented: $isShowingProfileSheet) {
+                           ProfileSheet()}
+                   }
+                   
+                   
+                   .background{Color("backg").ignoresSafeArea()
+                   }
+                   
+               }.accentColor(Color("Color2"))
+               
+           
+    }
+    func fetchDataFromCloudKit() {
+        let container = CKContainer.default()
+        let privateDatabase = container.privateCloudDatabase
+
+        let query = CKQuery(recordType: "PeopleInfo", predicate: NSPredicate(value: true))
+        privateDatabase.perform(query, inZoneWith: nil) { records, error in
+            if let error = error {
+                print("Error fetching data from CloudKit: \(error.localizedDescription)")
+                // Handle error
+            } else if let records = records {
+                var fetchedPeople: [peopleInfo] = []
+
+                for record in records {
+                    if let emoji = record["emoji"] as? Int,
+                       let name = record["name"] as? String {
+                        let person = peopleInfo(emoji: emoji, name: name)
+                        fetchedPeople.append(person)
+                    }
                 }
-                .sheet(isPresented: $isShowingProfileSheet) {
-                    ProfileSheet()}
+
+                DispatchQueue.main.async {
+                    self.peoples = fetchedPeople
+                }
             }
-            
-            
-            .background{Color("backg").ignoresSafeArea()
-            }
-            
-        }.accentColor(Color("Color2"))
-        
+        }
     }
 }
 #Preview {

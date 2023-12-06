@@ -6,7 +6,7 @@
 //
 
 import SwiftUI
-
+import CloudKit
 struct signInView: View {
     @State var username: String = ""
     var body: some View {
@@ -26,6 +26,24 @@ struct signInView: View {
                 }
             }
         }.accentColor(Color("Color2"))
+        
+    }
+    private func saveToCloudKit() {
+       
+        let record = CKRecord(recordType: "Users")
+
+        record.setValue(username, forKey: "name")
+        
+
+        let privateDatabase = CKContainer(identifier: "iCloud.Dawriyah").publicCloudDatabase
+
+        privateDatabase.save(record) { (savedRecord, error) in
+            if error == nil {
+                print("Record saved")
+            } else {
+                print("Record not saved.. \(error?.localizedDescription ?? "")")
+            }
+        }
     }
     }
 

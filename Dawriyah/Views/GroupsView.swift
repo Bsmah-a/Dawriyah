@@ -75,7 +75,9 @@ struct GroupsView: View {
                 ScrollView{
                     
                     HStack{Spacer()}
+                    
                     ForEach(groupName, id: \.self) { group in
+                        
                         NavigationLink {
                             CalendarPage()
                         } label: {
@@ -105,7 +107,6 @@ struct GroupsView: View {
 
 
                     }
-                    
                     
                     ZStack{
                         

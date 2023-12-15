@@ -202,6 +202,7 @@ struct Calendar1View: View {
     @Binding var currentDate: Date
     var people: [peopleInfo] // Add people parameter
     var onDayTapped: (Date) -> Void
+    @State private var wheelSheet = false
 
     var body: some View {
         VStack {
@@ -227,7 +228,17 @@ struct Calendar1View: View {
                 }
             }
         }
-        Image("wheel").resizable().frame(width: 55, height: 55).padding(.leading, 280)
+        Button(action: {
+            wheelSheet.toggle()
+        }) {
+            Image("wheel").resizable().frame(width: 55, height: 55).padding(.leading, 280)}
+        
+        
+        .sheet(isPresented: $wheelSheet, content: {
+            //هنا بيكون كود ال wheel
+            // stay tuned Dawriyah team!!  🤩
+        })
+        
     }
     // Helper function to get the days of the month
     private func monthDays() -> [Date] {

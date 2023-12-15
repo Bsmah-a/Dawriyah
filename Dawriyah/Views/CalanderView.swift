@@ -56,8 +56,8 @@ struct CalendarView: View {
                     .padding(.horizontal, 10)
                     .opacity(0.5)
 
-                Text("Dawriyah turns")
-                    .font(.title2)
+                Text("Dawriyah turns:")
+                    .font(.title3).bold()
                     .padding(.vertical, -5)
                     .offset(x: -100)
                     .offset(y: 20)
@@ -116,11 +116,13 @@ struct CalendarView: View {
                 
                 
                 Text("Highlight your busy days !")
-                    .font(.title2)
+                    .font(.title3).bold()
                     .padding(.vertical, 30)
-                    .offset(x:-50, y: -5)
+                    .offset(x:-50, y: -20)
+                    .padding(.bottom)
                 
                 Spacer()
+                
             }
     
             .sheet(isPresented: $DawriyahSheet, content: {
@@ -225,6 +227,7 @@ struct Calendar1View: View {
                 }
             }
         }
+        Image("wheel").resizable().frame(width: 55, height: 55).padding(.leading, 280)
     }
     // Helper function to get the days of the month
     private func monthDays() -> [Date] {
@@ -233,6 +236,7 @@ struct Calendar1View: View {
         let days = monthRange.map { calendar.date(bySetting: .day, value: $0, of: currentDate)! }
         return days
     }
+    
 }
                 
                 struct DayView: View {

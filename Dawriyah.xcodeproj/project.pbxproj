@@ -8,7 +8,6 @@
 
 /* Begin PBXBuildFile section */
 		29A7B3202B1754420077E1C1 /* AcceptReject.swift in Sources */ = {isa = PBXBuildFile; fileRef = 29A7B31F2B1754420077E1C1 /* AcceptReject.swift */; };
-		29A7B3222B17696C0077E1C1 /* CustomDialog.swift in Sources */ = {isa = PBXBuildFile; fileRef = 29A7B3212B17696C0077E1C1 /* CustomDialog.swift */; };
 		814F0ED52B18D349005D93B1 /* Groups.swift in Sources */ = {isa = PBXBuildFile; fileRef = 814F0ED42B18D349005D93B1 /* Groups.swift */; };
 		814F0ED72B18D42E005D93B1 /* Dawriyah.swift in Sources */ = {isa = PBXBuildFile; fileRef = 814F0ED62B18D42E005D93B1 /* Dawriyah.swift */; };
 		8161EE7A2B0A9E3700669CE2 /* DawriyahApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8161EE792B0A9E3700669CE2 /* DawriyahApp.swift */; };
@@ -31,7 +30,6 @@
 
 /* Begin PBXFileReference section */
 		29A7B31F2B1754420077E1C1 /* AcceptReject.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AcceptReject.swift; sourceTree = "<group>"; };
-		29A7B3212B17696C0077E1C1 /* CustomDialog.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomDialog.swift; sourceTree = "<group>"; };
 		814F0ED42B18D349005D93B1 /* Groups.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Groups.swift; sourceTree = "<group>"; };
 		814F0ED62B18D42E005D93B1 /* Dawriyah.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Dawriyah.swift; sourceTree = "<group>"; };
 		8161EE762B0A9E3700669CE2 /* Dawriyah.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Dawriyah.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -72,7 +70,6 @@
 				81F5E5922B15B8ED0078DD26 /* GroupsView.swift */,
 				8161EE932B10C9D600669CE2 /* peopleView.swift */,
 				81F5E5902B15A8490078DD26 /* signInView.swift */,
-				29A7B3212B17696C0077E1C1 /* CustomDialog.swift */,
 				8161EE8F2B0DF27D00669CE2 /* CreateView.swift */,
 				814F0ED22B18CB08005D93B1 /* Sheet */,
 			);
@@ -227,7 +224,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				29A7B3222B17696C0077E1C1 /* CustomDialog.swift in Sources */,
 				C505EA2D2B18B34300AF6E4A /* DawriyahDaySheet.swift in Sources */,
 				8161EEB62B13C5BA00669CE2 /* SplachScreenView.swift in Sources */,
 				8161EE8E2B0DF26300669CE2 /* CalanderView.swift in Sources */,

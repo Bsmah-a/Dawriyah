@@ -235,6 +235,8 @@ struct Calendar1View: View {
         
         
         .sheet(isPresented: $wheelSheet, content: {
+            Image("wheeltitle").resizable().frame(width: 350, height: 90).offset(x: 0, y: -150)
+            
             //هنا بيكون كود ال wheel
             // stay tuned Dawriyah team!!  🤩
         })

@@ -7,6 +7,11 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		2910E07C2B2CEBF500B0E8D2 /* spinningwheel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2910E07B2B2CEBF500B0E8D2 /* spinningwheel.swift */; };
+		2910E07E2B2CEECD00B0E8D2 /* wheel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2910E07D2B2CEECD00B0E8D2 /* wheel.swift */; };
+		2910E0802B2CEEFC00B0E8D2 /* WheelSliceShape.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2910E07F2B2CEEFC00B0E8D2 /* WheelSliceShape.swift */; };
+		2910E0822B2CEF2600B0E8D2 /* WheelPointer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2910E0812B2CEF2600B0E8D2 /* WheelPointer.swift */; };
+		2910E0A82B2F251C00B0E8D2 /* Wheel Demo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2910E0A72B2F251C00B0E8D2 /* Wheel Demo.swift */; };
 		29A7B3202B1754420077E1C1 /* AcceptReject.swift in Sources */ = {isa = PBXBuildFile; fileRef = 29A7B31F2B1754420077E1C1 /* AcceptReject.swift */; };
 		814F0ED52B18D349005D93B1 /* Groups.swift in Sources */ = {isa = PBXBuildFile; fileRef = 814F0ED42B18D349005D93B1 /* Groups.swift */; };
 		814F0ED72B18D42E005D93B1 /* Dawriyah.swift in Sources */ = {isa = PBXBuildFile; fileRef = 814F0ED62B18D42E005D93B1 /* Dawriyah.swift */; };
@@ -29,6 +34,11 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		2910E07B2B2CEBF500B0E8D2 /* spinningwheel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = spinningwheel.swift; sourceTree = "<group>"; };
+		2910E07D2B2CEECD00B0E8D2 /* wheel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = wheel.swift; sourceTree = "<group>"; };
+		2910E07F2B2CEEFC00B0E8D2 /* WheelSliceShape.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WheelSliceShape.swift; sourceTree = "<group>"; };
+		2910E0812B2CEF2600B0E8D2 /* WheelPointer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WheelPointer.swift; sourceTree = "<group>"; };
+		2910E0A72B2F251C00B0E8D2 /* Wheel Demo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Wheel Demo.swift"; sourceTree = "<group>"; };
 		29A7B31F2B1754420077E1C1 /* AcceptReject.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AcceptReject.swift; sourceTree = "<group>"; };
 		814F0ED42B18D349005D93B1 /* Groups.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Groups.swift; sourceTree = "<group>"; };
 		814F0ED62B18D42E005D93B1 /* Dawriyah.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Dawriyah.swift; sourceTree = "<group>"; };
@@ -98,6 +108,11 @@
 		8161EE6D2B0A9E3700669CE2 = {
 			isa = PBXGroup;
 			children = (
+				2910E0A72B2F251C00B0E8D2 /* Wheel Demo.swift */,
+				2910E0812B2CEF2600B0E8D2 /* WheelPointer.swift */,
+				2910E07F2B2CEEFC00B0E8D2 /* WheelSliceShape.swift */,
+				2910E07D2B2CEECD00B0E8D2 /* wheel.swift */,
+				2910E07B2B2CEBF500B0E8D2 /* spinningwheel.swift */,
 				8161EE782B0A9E3700669CE2 /* Dawriyah */,
 				8161EE772B0A9E3700669CE2 /* Products */,
 			);
@@ -225,14 +240,18 @@
 			buildActionMask = 2147483647;
 			files = (
 				C505EA2D2B18B34300AF6E4A /* DawriyahDaySheet.swift in Sources */,
+				2910E0A82B2F251C00B0E8D2 /* Wheel Demo.swift in Sources */,
 				8161EEB62B13C5BA00669CE2 /* SplachScreenView.swift in Sources */,
 				8161EE8E2B0DF26300669CE2 /* CalanderView.swift in Sources */,
 				814F0ED72B18D42E005D93B1 /* Dawriyah.swift in Sources */,
 				C505EA292B18832900AF6E4A /* BusyMembers.swift in Sources */,
 				81F5E5932B15B8ED0078DD26 /* GroupsView.swift in Sources */,
+				2910E07E2B2CEECD00B0E8D2 /* wheel.swift in Sources */,
 				8161EE7E2B0A9E3700669CE2 /* Item.swift in Sources */,
 				8161EE902B0DF27D00669CE2 /* CreateView.swift in Sources */,
+				2910E0822B2CEF2600B0E8D2 /* WheelPointer.swift in Sources */,
 				81F5E5912B15A8490078DD26 /* signInView.swift in Sources */,
+				2910E07C2B2CEBF500B0E8D2 /* spinningwheel.swift in Sources */,
 				29A7B3202B1754420077E1C1 /* AcceptReject.swift in Sources */,
 				81F5E58F2B15A2520078DD26 /* calanderSheet.swift in Sources */,
 				81F5E58D2B15A1D60078DD26 /* peopleInfo.swift in Sources */,
@@ -240,6 +259,7 @@
 				8161EE942B10C9D600669CE2 /* peopleView.swift in Sources */,
 				8161EE7A2B0A9E3700669CE2 /* DawriyahApp.swift in Sources */,
 				C53CE7232B14CDA800A0C041 /* DawriyahTurns.swift in Sources */,
+				2910E0802B2CEEFC00B0E8D2 /* WheelSliceShape.swift in Sources */,
 				99BDF2042B177DAD00E52377 /* Account.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

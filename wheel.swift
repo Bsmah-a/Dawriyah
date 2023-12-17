@@ -5,14 +5,39 @@
 //  Created by Shahad Alzowaid on 02/06/1445 AH.
 //
 
+//
+//  File.swift
+//
+//
+//  Created by ADyatkov on 08.09.2022.
+//
+
 import SwiftUI
 
-struct wheel: View {
-    var body: some View {
-        Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
-    }
-}
+@available(iOS 14.0, *)
+struct WheelSlice<Label>: View where Label: View {
 
-#Preview {
-    wheel()
+    let label: () -> Label
+    let size: Angle
+    let color: Color
+    let includeOverlap: Bool
+
+    init(size: Angle, color: Color, includeOverlap: Bool = true, @ViewBuilder label: @escaping () -> Label) {
+        self.label = label
+        self.size = size
+        self.color = color
+        self.includeOverlap = includeOverlap
+    }
+
+    var body: some View {
+        ZStack(alignment: .top) {
+            WheelSliceShape(
+                sliceSize: size,
+                includeOverlap: includeOverlap
+            ).fill(color)
+
+            label()
+                .offset(x: 0, y: 12)
+        }
+    }
 }
